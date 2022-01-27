@@ -9,7 +9,7 @@ import UIKit
 import MapKit
 import Parse
 
-class SelectViewController: UIViewController, MKMapViewDelegate{
+class SelectViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var selectImageView: UIImageView!
     @IBOutlet weak var selectNameLabel: UILabel!
@@ -17,7 +17,8 @@ class SelectViewController: UIViewController, MKMapViewDelegate{
     @IBOutlet weak var selectCommentLabel: UILabel!
     @IBOutlet weak var selectMapView: MKMapView!
     
-    var choosenPlacesId = ""//bu idyi diğer taraftaki seçilen idye eşitleyebilelim
+    //bu idyi diğer taraftaki seçilen idye eşitleyebilelim
+    var choosenPlacesId = ""
     
     var choosenLatitude = Double()
     var choosenLongitude = Double()

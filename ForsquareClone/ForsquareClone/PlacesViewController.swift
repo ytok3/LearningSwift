@@ -19,38 +19,46 @@ class PlacesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      
         tableView.delegate = self
         tableView.dataSource = self
         
+        navigationController?.navigationBar.topItem?.rightBarButtonItem =
+            UIBarButtonItem(
+                barButtonSystemItem: UIBarButtonItem.SystemItem.add,
+                target: self,
+                action: #selector(addButtonClicked)
+            )
         
-        navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(addButtonClicked))
-        
-        navigationController?.navigationBar.topItem?.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItem.Style.plain, target: self, action: #selector(logoutButtonClicked))
+        navigationController?.navigationBar.topItem?.leftBarButtonItem =
+            UIBarButtonItem(
+                title: "Logout",
+                style: UIBarButtonItem.Style.plain,
+                target: self,
+                action: #selector(logoutButtonClicked)
+            )
         
         getDataFromParse()
-
     }
     
     @objc func addButtonClicked() {
         //Segue
         performSegue(withIdentifier: "toDetailsVC", sender: nil)
-        
-        
     }
+    
     @objc func logoutButtonClicked() {
         //parseden çıkış
         PFUser.logOutInBackground { error in
             if error != nil {
-                
-                self.makeAlert(titleInput: "Error!", messageInput: error?.localizedDescription ?? "Error!")
-                
+                self.makeAlert(
+                    titleInput: "Error!",
+                    messageInput: error?.localizedDescription ?? "Error!")
             } else {
-                self.performSegue(withIdentifier: "toSignUpVC", sender: nil)
+                self.performSegue(
+                    withIdentifier: "toSignUpVC",
+                    sender: nil
+                )
             }
         }
-        
-        
     }
     
     func makeAlert(titleInput : String, messageInput : String) {
@@ -95,7 +103,6 @@ class PlacesViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 }
             }
         }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -106,12 +113,8 @@ class PlacesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         selectedPlaceId = placeIdArray[indexPath.row] //hangisine tıklandıysa ona eşit olsun
         self.performSegue(withIdentifier: "toSelectVC", sender: nil)
     }
     
-    
-
-
 }

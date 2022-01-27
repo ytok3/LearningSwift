@@ -53,10 +53,6 @@ class DetailsViewController: UIViewController, UIImagePickerControllerDelegate, 
             alert.addAction(okButton)
             present(alert, animated: true, completion: nil)
         }
-        
-        
-        
-        
     }
     
     @objc func chooseImage() {

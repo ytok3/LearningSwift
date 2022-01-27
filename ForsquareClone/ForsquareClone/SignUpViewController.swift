@@ -10,21 +10,20 @@ import Parse
 
 class SignUpViewController: UIViewController {
 
+    // MARK: - Properties
+    
     @IBOutlet weak var userNameText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
+    
+    // MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-       
-       
-        
-        
     }
 
-
+    // MARK: - Funcs
+    
     @IBAction func signInClicked(_ sender: Any) {
         
         if userNameText.text != "" && passwordText.text != "" {
